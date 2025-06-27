@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSM Placement Records</title>
+    <style>
+        /* General styling */
+        body {
+            background: linear-gradient(135deg, #3a6186, #89253e);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+            .video-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            }
+        }
+
+        /* Header styling */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ffeb3b;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffeb3b;
+        }
+
+        /* Placement table styling */
+        .placement-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #fff;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffeb3b;
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Batch section heading */
+        .batch-heading {
+            margin-top: 30px;
+            font-size: 1.8rem;
+            color: #ffeb3b;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="C:\Users\HP\Downloads\ai_background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Header -->
+    <div class="header">
+        <h1>Placement Records for CSM Students</h1>
+        <p>Explore the list of students who secured placements over the years.</p>
+    </div>
+
+    <!-- Placement container -->
+    <div class="placement-container">
+        <!-- Batch of 2024 -->
+        <h2 class="batch-heading">Batch of 2024</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Company</th>
+                <th>Package (LPA)</th>
+            </tr>
+            <tr>
+                <td>Student A</td>
+                <td>Google</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Student B</td>
+                <td>Microsoft</td>
+                <td>28</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+
+        <!-- Batch of 2023 -->
+        <h2 class="batch-heading">Batch of 2023</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Company</th>
+                <th>Package (LPA)</th>
+            </tr>
+            <tr>
+                <td>Student C</td>
+                <td>Amazon</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Student D</td>
+                <td>Infosys</td>
+                <td>12</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+
+        <!-- Add more batches as needed -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-image: url('background2.jpg');
+            /* Add your background image here */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        /* Search bar styling */
+        .search-container {
+            margin: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Projects grid styling */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Slightly transparent */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            /* Reduced blur effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            color: #ffffff;
+            /* Set text color to white */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            /* White text color for title */
+        }
+
+        .project-description {
+            color: #e0e0e0;
+            /* Light gray for readability */
+        }
+    </style>
+</head>
+
+<body><!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1 style="color: white;">Our Projects</h1>
+
+    <!-- Search bar -->
+    <div class="search-container">
+        <input type="text" id="searchBar" class="search-bar" onkeyup="searchProjects()"
+            placeholder="Search for projects...">
+    </div>
+
+    <!-- Projects list -->
+    <div class="projects-container" id="projectsContainer">
+        <!-- Sample Project 1 -->
+        <div class="project-card">
+            <h2 class="project-title">Project Alpha</h2>
+            <p class="project-description">A web application designed to manage tasks efficiently.</p>
+        </div>
+
+        <!-- Sample Project 2 -->
+        <div class="project-card">
+            <h2 class="project-title">Project Beta</h2>
+            <p class="project-description">An innovative solution for tracking daily expenses and budgeting.</p>
+        </div>
+
+        <!-- Sample Project 3 -->
+        <div class="project-card">
+            <h2 class="project-title">Project Gamma</h2>
+            <p class="project-description">A data visualization tool for market analysis and insights.</p>
+        </div>
+
+        <!-- Sample Project 4 -->
+        <div class="project-card">
+            <h2 class="project-title">Project Delta</h2>
+            <p class="project-description">A mobile app for fitness tracking and health management.</p>
+        </div>
+
+        <!-- Add more projects as needed -->
+    </div>
+
+    <script>
+        // Function to filter projects based on search input
+        function searchProjects() {
+            const input = document.getElementById("searchBar").value.toLowerCase();
+            const projectCards = document.getElementsByClassName("project-card");
+
+            for (let i = 0; i < projectCards.length; i++) {
+                const title = projectCards[i].getElementsByClassName("project-title")[0].innerText.toLowerCase();
+                const description = projectCards[i].getElementsByClassName("project-description")[0].innerText.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    projectCards[i].style.display = ""; // Show project
+                } else {
+                    projectCards[i].style.display = "none"; // Hide project
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

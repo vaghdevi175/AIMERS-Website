@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .video-background {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           z-index: -1;
+          object-fit: cover;
+        }
+        .background {
+            height: 100%;
+            background-image: url('./assests/BackgroundVideo.mp4');
+            /* Replace with the path to your uploaded image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+      /*.overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 102, 204, 0.3), rgba(0, 51, 153, 0.7));
+            z-index: 1;
+       }*/
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0073e6;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0073e6;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+    <script>
+        // Simulate the login process
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Example: You can replace this with actual validation logic
+            var username = document.querySelector('input[type="text"]').value;
+            var password = document.querySelector('input[type="password"]').value;
+
+            if (username === "john" && password === "123") { // Example condition
+                // Redirect to the profile page with the "My Details" section
+                window.location.href = "file:///C:/Users/HP/OneDrive/Desktop/aimers%20website/my_profile.html"; // Assuming the profile page is named profile.html
+            } else {
+                alert("Invalid login credentials");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="background">
+        <video class="video-background" autoplay muted loop>
+            <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <input type="text" placeholder="Username" required><br>
+                <input type="password" placeholder="Password" required><br>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+
+</html>

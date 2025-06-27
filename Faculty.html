@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Slider HTML and CSS | CodingNepal</title>
+  <!-- Linking SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <video class="video-background" autoplay muted loop>
+    <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container swiper">
+    <h1 class="heading">Faculty Profiles</h1> <!-- Added Heading -->
+    <div class="slider-wrapper">
+      <div class="card-list swiper-wrapper">
+        <div class="card-item swiper-slide">
+          <img src="./assests/krishna sir.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Dr.M.R.K.Krishna Rao</h2>
+          <p class="user-profession">Professor</p>
+          <p>Ph.D(TIFR, Bombay)</p>
+        </div>
+
+        <div class="card-item swiper-slide">
+          <img src="./assests/bebarta sir.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Dr.D.Krishna Bebarta</h2>
+          <p class="user-profession">Head of Department </p>
+          <p>M.Tech.,Ph.D</p>
+        </div>
+
+        <div class="card-item swiper-slide">
+          <img src="./assests/naidu sir.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Dr.K.Purushotham</h2>
+          <h2 class="user-name">Naidu</h2>
+          <p class="user-profession">Assistant Professor</p>
+          <p>B.Tech.,M.Tech.,Ph.D
+          <p>
+        </div>
+
+        <div class="card-item swiper-slide">
+          <img src="./assests/santhoshi.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Ms.D.B.Santhoshi</p>
+            <p class="user-profession">Assistant Professor</p>
+            <p>B.Tech.,M.Tech.,
+            <p>
+        </div>
+
+        <div class="card-item swiper-slide">
+          <img src="C:\Users\HP\OneDrive\Desktop\aimers website\img-6.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Mrs.H.Gouthami</h2>
+          <p class="user-profession">Assistant Professor</p>
+          <p>B.Tech.,M.Tech.,
+          <p>
+        </div>
+
+        <div class="card-item swiper-slide">
+          <img src="C:\Users\HP\OneDrive\Desktop\aimers website\img-5.jpg" alt="User  Image" class="user-image">
+          <h2 class="user-name">Ms.M.Sujatha</h2>
+          <p class="user-profession">Assistant Professor</p>
+          <p>B.Tech.,M.Tech.
+          <p>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-slide-button swiper-button-prev"></div>
+      <div class="swiper-slide-button swiper-button-next"></div>
+    </div>
+  </div>
+
+  <!-- Linking SwiperJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Linking custom script -->
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Semi-transparent dark background */
+            background-image: url('https://img.freepik.com/free-vector/dark-blue-blurred-background_1034-589.jpg?t=st=1731516535~exp=1731520135~hmac=cd368d2f4c2cc1e3b78bb1b8c4a016780127c8ae070fb90edff068642725972e&w=740');
+            /* Example background image */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+
+            .video-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 128, 128, 0.1);
+            /* Transparent greenish-blue */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+            /* Greenish-blue shadow */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+        }
+
+        .event-select {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .feedback-form {
+            margin-bottom: 40px;
+        }
+
+        .feedback-form h2 {
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            margin-bottom: 10px;
+        }
+
+        .feedback-form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: rgba(255, 255, 255, 0.8);
+            /* Light white for labels */
+        }
+
+        .feedback-form input,
+        .feedback-form select,
+        .feedback-form textarea,
+        .feedback-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            /* Transparent white border */
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.6);
+            /* Slightly transparent white */
+        }
+
+        .feedback-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .feedback-form button {
+            background-color: rgba(76, 175, 80, 1);
+            /* Solid green background */
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: rgba(69, 160, 73, 1);
+            /* Slightly darker green on hover */
+        }
+
+        .reviews,
+        .suggestions {
+            margin-top: 40px;
+        }
+
+        .reviews h2,
+        .suggestions h2 {
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            margin-bottom: 20px;
+        }
+
+        .review,
+        .suggestion {
+            background-color: rgba(0, 128, 128, 0.6);
+            /* Greenish-blue background */
+            padding: 15px;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.3);
+            /* Greenish-blue shadow */
+            min-width: 250px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review .name,
+        .suggestion .name {
+            font-weight: bold;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 1);
+            /* Solid white for name */
+        }
+
+        .review .rating,
+        .suggestion .rating {
+            color: rgba(243, 156, 18, 1);
+            /* Solid amber color */
+        }
+
+        .review .comment,
+        .suggestion .comment {
+            margin-top: 10px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            /* Slightly faded white */
+        }
+
+        .review .like-button,
+        .suggestion .like-button {
+            background-color: rgba(0, 123, 255, 1);
+            /* Solid blue */
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .review .like-button:hover,
+        .suggestion .like-button:hover {
+            background-color: rgba(2, 92, 179, 1);
+            /* Darker blue on hover */
+        }
+
+        .like-count {
+            margin-left: 10px;
+            font-size: 14px;
+            color: rgba(0, 123, 255, 1);
+            /* Blue color for like count */
+        }
+
+        .like-button-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .scroll-box {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 10px;
+        }
+
+        .general-suggestions {
+            margin-top: 40px;
+        }
+
+        .general-suggestions h2 {
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            margin-bottom: 20px;
+        }
+
+        .general-suggestions textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            /* Transparent white border */
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.6);
+            /* Slightly transparent white background */
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .general-suggestions button {
+            background-color: rgba(0, 123, 255, 1);
+            /* Solid blue */
+            color: rgba(255, 255, 255, 1);
+            /* Solid white text */
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .general-suggestions button:hover {
+            background-color: rgba(2, 92, 179, 1);
+            /* Darker blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <header>
+            <h1>Event Feedback</h1>
+            <p>Share your thoughts about the event!</p>
+        </header>
+
+        <!-- Event Selection -->
+        <section class="event-select">
+            <label for="eventSelector">Select an Event:</label>
+            <select id="eventSelector">
+                <option value="" disabled selected>Choose an event</option>
+                <option value="event1">Event 1</option>
+                <option value="event2">Event 2</option>
+                <option value="event3">Event 3</option>
+            </select>
+        </section>
+
+        <!-- Feedback Form -->
+        <section class="feedback-form">
+            <h2>Leave Your Feedback</h2>
+            <form id="feedbackForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required placeholder="Enter your name">
+
+                <label for="rating">Rate the Event:</label>
+                <select id="rating" required>
+                    <option value="" disabled selected>Choose a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+
+                <label for="comment">Your Feedback:</label>
+                <textarea id="comment" placeholder="Enter your feedback" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <div id="reviewsContainer" class="scroll-box">
+                <!-- Reviews will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Suggestions Section -->
+        <section class="suggestions">
+            <h2>Suggestions</h2>
+            <div id="suggestionsContainer" class="scroll-box">
+                <!-- Suggestions will be displayed here -->
+            </div>
+        </section>
+
+        <!-- General Suggestions Form -->
+        <section class="general-suggestions">
+            <h2>General Suggestions for AIMERS Club</h2>
+            <form id="generalSuggestionsForm">
+                <textarea id="generalSuggestions" placeholder="Enter your suggestion for the AIMERS Club"
+                    required></textarea>
+                <button type="submit">Submit Suggestion</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        let currentEvent = '';
+
+        // Sample data for reviews, suggestions
+        const reviewsData = {
+            event1: [
+                { name: "Alice", rating: 5, comment: "Amazing event, learned a lot!", likes: 0 },
+                { name: "Bob", rating: 4, comment: "Great sessions, but could improve timing.", likes: 0 }
+            ],
+            event2: [
+                { name: "Charlie", rating: 3, comment: "Good event, but not enough practical activities.", likes: 0 },
+                { name: "David", rating: 5, comment: "Excellent speakers and topics!", likes: 0 }
+            ],
+            event3: [
+                { name: "Eve", rating: 4, comment: "Nice experience, would attend again.", likes: 0 },
+                { name: "Frank", rating: 2, comment: "Not what I expected.", likes: 0 }
+            ]
+        };
+
+        const suggestionsData = {
+            event1: [
+                { name: "Grace", suggestion: "Maybe add more hands-on activities.", likes: 0 },
+                { name: "Hank", suggestion: "Provide more detailed materials for the sessions.", likes: 0 }
+            ],
+            event2: [
+                { name: "Ivy", suggestion: "Would be great to have better refreshments.", likes: 0 },
+                { name: "Jack", suggestion: "More interactive sessions next time.", likes: 0 }
+            ],
+            event3: [
+                { name: "Kate", suggestion: "The venue could be better.", likes: 0 },
+                { name: "Leo", suggestion: "Consider doing the event on weekends.", likes: 0 }
+            ]
+        };
+
+        // Load reviews and suggestions for the selected event
+        document.getElementById("eventSelector").addEventListener("change", (event) => {
+            currentEvent = event.target.value;
+            loadEventReviews(currentEvent);
+            loadEventSuggestions(currentEvent);
+        });
+
+        function loadEventReviews(event) {
+            const reviewsContainer = document.getElementById("reviewsContainer");
+            reviewsContainer.innerHTML = '';
+            if (event && reviewsData[event]) {
+                reviewsData[event].forEach(review => {
+                    const reviewElement = document.createElement("div");
+                    reviewElement.classList.add("review");
+                    reviewElement.innerHTML = `
+                        <div class="name">${review.name}</div>
+                        <div class="rating">Rating: ${review.rating}</div>
+                        <div class="comment">${review.comment}</div>
+                        <div class="like-button-container">
+                            <button class="like-button" onclick="likeReview(this)">Like</button>
+                            <span class="like-count">${review.likes} Likes</span>
+                        </div>
+                    `;
+                    reviewsContainer.appendChild(reviewElement);
+                });
+            }
+        }
+
+        function loadEventSuggestions(event) {
+            const suggestionsContainer = document.getElementById("suggestionsContainer");
+            suggestionsContainer.innerHTML = '';
+            if (event && suggestionsData[event]) {
+                suggestionsData[event].forEach(suggestion => {
+                    const suggestionElement = document.createElement("div");
+                    suggestionElement.classList.add("suggestion");
+                    suggestionElement.innerHTML = `
+                        <div class="name">${suggestion.name}</div>
+                        <div class="comment">${suggestion.suggestion}</div>
+                        <div class="like-button-container">
+                            <button class="like-button" onclick="likeSuggestion(this)">Like</button>
+                            <span class="like-count">${suggestion.likes} Likes</span>
+                        </div>
+                    `;
+                    suggestionsContainer.appendChild(suggestionElement);
+                });
+            }
+        }
+
+        function likeReview(button) {
+            const likeCount = button.nextElementSibling;
+            let likes = parseInt(likeCount.textContent.split(' ')[0]);
+            likes++;
+            likeCount.textContent = `${likes} Likes`;
+        }
+
+        function likeSuggestion(button) {
+            const likeCount = button.nextElementSibling;
+            let likes = parseInt(likeCount.textContent.split(' ')[0]);
+            likes++;
+            likeCount.textContent = `${likes} Likes`;
+        }
+
+        // Handle form submission for general suggestions
+        document.getElementById("generalSuggestionsForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const suggestion = document.getElementById("generalSuggestions").value;
+            alert(`General Suggestion Submitted: ${suggestion}`);
+            document.getElementById("generalSuggestions").value = '';
+        });
+
+        // Handle form submission for feedback
+        document.getElementById("feedbackForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const rating = document.getElementById("rating").value;
+            const comment = document.getElementById("comment").value;
+            if (currentEvent) {
+                const newReview = { name, rating, comment, likes: 0 };
+                reviewsData[currentEvent].push(newReview);
+                loadEventReviews(currentEvent);
+            }
+            // Reset the form fields
+            document.getElementById("name").value = '';
+            document.getElementById("rating").value = '';
+            document.getElementById("comment").value = '';
+        });
+    </script>
+</body>
+
+</html>

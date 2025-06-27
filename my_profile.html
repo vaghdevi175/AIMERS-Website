@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Aimers Club</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: whitesmoke;
+            /* Default text color */
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-background {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           z-index: -1;
+          object-fit: cover;
+        }
+        .content {
+            background-color: rgba(0, 0, 255, 0.6);
+            /* Transparent blue */
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        p {
+            margin: 0 0 15px;
+            line-height: 1.6;
+            /* Increase line height for readability */
+        }
+
+        h2 {
+            color: whitesmoke;
+            /* Deep blue for subheadings */
+            font-size: 1.75em;
+            /* Slightly larger size for headings */
+        }
+
+        p {
+            font-size: 1.1em;
+            color: whitesmoke;
+            /* Darker color for paragraph text */
+        }
+
+        .background-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .section {
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: rgba(197, 197, 214, 0.1);
+            /* Transparent blue */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-form {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-form input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .upload-form button {
+            background-color: #007367;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .upload-form button:hover {
+            background-color: #005c5c;
+        }
+    </style>
+</head>
+
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- My Details Section -->
+    <section class="section">
+        <h2>My Details</h2>
+        <p>Name: John Doe</p>
+        <p>Email: john.doe@example.com</p>
+        <p>Phone: +91-123-456-7890</p>
+    </section>
+
+    <!-- My Certificates Section -->
+    <section class="section">
+        <h2>My Certificates</h2>
+        <form action="upload_certificates.php" method="post" enctype="multipart/form-data" class="upload-form">
+            <label for="certificateUpload">Upload Certificate:</label><br>
+            <input type="file" name="certificate" id="certificateUpload" required><br>
+            <button type="submit">Upload Certificate</button>
+        </form>
+    </section>
+
+    <!-- My Projects Section -->
+    <section class="section">
+        <h2>My Projects</h2>
+        <form action="upload_projects.php" method="post" enctype="multipart/form-data" class="upload-form">
+            <label for="projectUpload">Upload Project:</label><br>
+            <input type="file" name="project" id="projectUpload" required><br>
+            <button type="submit">Upload Project</button>
+        </form>
+    </section>
+
+    <!-- My Achievements Section -->
+    <section class="section">
+        <h2>My Achievements</h2>
+        <form action="upload_achievements.php" method="post" enctype="multipart/form-data" class="upload-form">
+            <label for="achievementUpload">Upload Achievement:</label><br>
+            <input type="file" name="achievement" id="achievementUpload" required><br>
+            <button type="submit">Upload Achievement</button>
+        </form>
+    </section>
+
+</body>
+
+</html>

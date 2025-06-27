@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSM Placements</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body and background */
+        body {
+            background: linear-gradient(135deg, #3a6186, #89253e);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+
+            .video-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Header section */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(8px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffeb3b;
+        }
+
+        /* Gradient button styling */
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #f9d423);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #f9d423, #ff6b6b);
+        }
+
+        /* Placement Stats Section */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 30%;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .stat-box h2 {
+            color: #ffeb3b;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 1.2rem;
+        }
+
+        /* Achievements section */
+        .achievements {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .achievements h2 {
+            color: #ffeb3b;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .achievement-item {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .achievement-title {
+            font-size: 1.2rem;
+        }
+
+        .company-logo {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background: #fff;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main container -->
+    <!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+
+        <!-- Header section -->
+        <div class="header">
+            <h1>CSM Placement Overview</h1>
+            <p>Your future starts here! Explore the amazing placement opportunities for CSM students.</p>
+            <button class="btn"
+                onclick="window.location.href='file:///C:/Users/HP/OneDrive/Desktop/aimers%20website/place.html'">Explore
+                Placements</button>
+
+        </div>
+
+        <!-- Placement stats section -->
+        <section class="stats">
+            <div class="stat-box">
+                <h2>Top Recruiters</h2>
+                <p>Google, Microsoft, Amazon, Infosys, TCS</p>
+            </div>
+            <div class="stat-box">
+                <h2>Highest Package</h2>
+                <p>₹30 LPA</p>
+            </div>
+            <div class="stat-box">
+                <h2>Average Package</h2>
+                <p>₹8 LPA</p>
+            </div>
+        </section>
+
+        <!-- Achievements section -->
+        <section class="achievements">
+            <h2>Recent Achievements</h2>
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <span class="achievement-title">Student A secured placement at Amazon.</span>
+                    <img src="https://via.placeholder.com/40" alt="Company Logo" class="company-logo">
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-title">Student B received an offer from Google.</span>
+                    <img src="https://via.placeholder.com/40" alt="Company Logo" class="company-logo">
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-title">Student C placed at Infosys with a 12 LPA package.</span>
+                    <img src="https://via.placeholder.com/40" alt="Company Logo" class="company-logo">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

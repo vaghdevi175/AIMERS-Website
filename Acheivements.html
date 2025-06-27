@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Department of AI&ML</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Background image and styling */
+        body {
+            background-image: url('./assests/BackgroundVideo.mp4');
+            /* Adjust path if necessary */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            /* Adjust text color for readability */
+
+            .video-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            }
+        }
+
+        .bg-designed {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Optional overlay for better readability */
+        }
+
+        .achievement-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Light background for cards */
+            color: #ffffff;
+            /* Set text color to white */
+        }
+
+        .text-light {
+            color: #ffffff !important;
+        }
+
+        .card-title,
+        .card-body p,
+        .btn-light {
+            color: #ffffff !important;
+            /* Ensure all text within cards is white */
+        }
+
+        .btn-light {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Light background for buttons */
+            border: none;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body class="bg-designed">
+    <!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="./assests/BackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header class="text-white text-center py-5">
+        <h1>Department of AI&ML</h1>
+        <h2>Celebrating Achievements</h2>
+    </header>
+
+    <main class="container my-5">
+        <section class="achievements-section">
+            <h3 class="text-light text-center mb-4">Alumni Achievements</h3>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card achievement-card alumni-card shadow-lg">
+                        <img src="./assests/img-1.jpg" class="card-img-top"
+                            alt="John Doe">
+                        <div class="card-body">
+                            <h4 class="card-title">John Doe</h4>
+                            <p><strong>Graduated:</strong> 2020</p>
+                            <p><strong>Achievement:</strong> Awarded "Best Innovator" at Tech Innovations 2023.</p>
+                            <a href="#" class="btn btn-light">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card achievement-card alumni-card shadow-lg">
+                        <img src="./assests/img-2.jpg" class="card-img-top"
+                            alt="Jane Smith">
+                        <div class="card-body">
+                            <h4 class="card-title">Jane Smith</h4>
+                            <p><strong>Graduated:</strong> 2019</p>
+                            <p><strong>Achievement:</strong> Co-founder of a successful startup recognized by Forbes.
+                            </p>
+                            <a href="#" class="btn btn-light">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card achievement-card alumni-card shadow-lg">
+                        <img src="./assests/img-3.jpg" class="card-img-top"
+                            alt="Michael Johnson">
+                        <div class="card-body">
+                            <h4 class="card-title">Michael Johnson</h4>
+                            <p><strong>Graduated:</strong> 2018</p>
+                            <p><strong>Achievement:</strong> Published research in a leading AI journal.</p>
+                            <a href="#" class="btn btn-light">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements-section mt-5">
+            <h3 class="text-light text-center mb-4">Current Students Achievements</h3>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card achievement-card student-card shadow-lg">
+                        <img src="./assests/img-4.jpg" class="card-img-top"
+                            alt="Alice Brown">
+                        <div class="card-body">
+                            <h4 class="card-title">Alice Brown</h4>
+                            <p><strong>Year:</strong> 3rd Year</p>
+                            <p><strong>Achievement:</strong> Winner of the National Coding Competition 2023.</p>
+                            <a href="#" class="btn btn-light">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card achievement-card student-card shadow-lg">
+                        <img src="./assests/img-5.jpg" class="card-img-top"
+                            alt="David Wilson">
+                        <div class="card-body">
+                            <h4 class="card-title">David Wilson</h4>
+                            <p><strong>Year:</strong> 2nd Year</p>
+                            <p><strong>Achievement:</strong> Winner of the AI Hackathon 2023
+
+                            </p>
+                            <a href="#" class="btn btn-light">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
